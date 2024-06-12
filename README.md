@@ -2,4 +2,4 @@
 
 > nix develop
 
-> dhall-to-yaml --file ./examples/deploymentSimple.dhall
+> dhall-to-yaml <<< './examples/deploymentSimple.dhall'
