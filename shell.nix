@@ -11,16 +11,29 @@ let pkgs = import ./nixpkgs.nix;
       source = true;
     };
 
+    dhall-prelude = pkgs.dhallPackages.buildDhallGitHubPackage {
+      name = "Prelude";
+      owner = "dhall-lang";
+      repo = "dhall-lang";
+      directory = "Prelude";
+      file = "package.dhall";
+      rev = "v22.0.0";
+      sha256 = "sha256-Ay0zko9bUGD4D3fVq1ZogVnKHlcvOqRcvCvCxH1J/ZQ=";
+      source = true;
+    };
+
 in with pkgs;
 mkShell {
 
   buildInputs = [
     dhall-json # the binary dhall-to-yaml is in here for some reason..
     dhall-kub
+    dhall-prelude
     dhall
   ];
 
   shellHook = ''
     export DHALLKUB="${dhall-kub}/source.dhall"
+    export DHALLPRELUDE="${dhall-prelude}/source.dhall"
   '';
 }
