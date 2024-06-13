@@ -1,12 +1,17 @@
 -- we find the dhall imported sha256 in the nix-shell via `dhall repl` and > :hash https://raw.githubusercontent.com/dhall-lang/dhall-lang/refs/tags/v22.0.0/Prelude/package.dhall
-let Prelude = env:DHALLPRELUDE sha256:1c7622fdc868fe3a23462df3e6f533e50fdc12ecf3b42c0bb45c328ec8c4293e
-        ? https://raw.githubusercontent.com/dhall-lang/dhall-lang/refs/tags/v22.0.0/Prelude/package.dhall sha256:1c7622fdc868fe3a23462df3e6f533e50fdc12ecf3b42c0bb45c328ec8c4293e
-        
+let Prelude =
+        env:DHALLPRELUDE
+          sha256:1c7622fdc868fe3a23462df3e6f533e50fdc12ecf3b42c0bb45c328ec8c4293e
+      ? https://raw.githubusercontent.com/dhall-lang/dhall-lang/refs/tags/v22.0.0/Prelude/package.dhall
+          sha256:1c7622fdc868fe3a23462df3e6f533e50fdc12ecf3b42c0bb45c328ec8c4293e
 
 let map = Prelude.List.map
 
-let kubernetes = env:DHALLKUB sha256:263ee915ef545f2d771fdcd5cfa4fbb7f62772a861b5c197f998e5b71219112c
-      ? https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/master/package.dhall sha256:263ee915ef545f2d771fdcd5cfa4fbb7f62772a861b5c197f998e5b71219112c
+let kubernetes =
+        env:DHALLKUB
+          sha256:263ee915ef545f2d771fdcd5cfa4fbb7f62772a861b5c197f998e5b71219112c
+      ? https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/master/package.dhall
+          sha256:263ee915ef545f2d771fdcd5cfa4fbb7f62772a861b5c197f998e5b71219112c
 
 let Service = { name : Text, host : Text, version : Text }
 

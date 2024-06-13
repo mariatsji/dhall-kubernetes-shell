@@ -22,6 +22,10 @@ let pkgs = import ./nixpkgs.nix;
       source = true;
     };
 
+    my-dhall-lsp-server = (import (builtins.fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/1b7a6a6e57661d7d4e0775658930059b77ce94a4.tar.gz";
+    }) {}).haskellPackages.dhall-lsp-server;
+
 in with pkgs;
 mkShell {
 
@@ -30,6 +34,7 @@ mkShell {
     dhall-kub
     dhall-prelude
     dhall
+    my-dhall-lsp-server
   ];
 
   shellHook = ''
