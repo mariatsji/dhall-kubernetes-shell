@@ -33,6 +33,7 @@ mkShell {
     dhall-json # the binary dhall-to-yaml is in here for some reason..
     dhall-kub
     dhall-prelude
+    dhall-bash
     dhall
     my-dhall-lsp-server
   ];
