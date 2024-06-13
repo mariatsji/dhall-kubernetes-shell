@@ -1,5 +1,5 @@
 # Kubernetes yamls using Dhall
 
-> nix develop
+> nix-shell
 
 > dhall-to-yaml <<< './examples/deploymentSimple.dhall'

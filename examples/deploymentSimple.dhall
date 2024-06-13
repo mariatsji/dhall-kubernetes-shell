@@ -1,7 +1,5 @@
--- todo - get this from nix
-let kubernetes =
-      https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/master/package.dhall
-        sha256:263ee915ef545f2d771fdcd5cfa4fbb7f62772a861b5c197f998e5b71219112c
+let kubernetes = env:DHALLKUB sha256:263ee915ef545f2d771fdcd5cfa4fbb7f62772a861b5c197f998e5b71219112c
+      ? https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/master/package.dhall sha256:263ee915ef545f2d771fdcd5cfa4fbb7f62772a861b5c197f998e5b71219112c
 
 let deployment =
       kubernetes.Deployment::{
