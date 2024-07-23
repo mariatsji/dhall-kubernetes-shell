@@ -36,6 +36,9 @@ mkShell {
     dhall-bash
     dhall
     my-dhall-lsp-server
+    go # go-things
+    gopls
+    kubebuilder # kubebuilder
   ];
 
   shellHook = ''
